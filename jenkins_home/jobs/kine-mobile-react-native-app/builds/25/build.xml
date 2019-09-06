@@ -1,0 +1,76 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@2.34">
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>kine_admin</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <org.jenkinsci.plugins.workflow.libs.LibrariesAction plugin="workflow-cps-global-lib@2.15">
+      <libraries/>
+    </org.jenkinsci.plugins.workflow.libs.LibrariesAction>
+  </actions>
+  <queueId>46</queueId>
+  <timestamp>1567703719786</timestamp>
+  <startTime>1567703719801</startTime>
+  <result>FAILURE</result>
+  <duration>4189</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>FAILURE</result>
+    <script>node {
+  try {
+    stage(&apos;Environment&apos;) {
+      sh &apos;whoami&apos;
+      sh &apos;groups&apos;
+    }
+        stage(&apos;Docker&apos;) {
+        docker {
+            image &apos;node:6-alpine&apos;
+            args &apos;-p 3000:3000&apos;
+        }
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}</script>
+    <loadedScripts class="map"/>
+    <durabilityHint>MAX_SURVIVABILITY</durabilityHint>
+    <timings class="map">
+      <entry>
+        <string>flowNode</string>
+        <long>367045668</long>
+      </entry>
+      <entry>
+        <string>classLoad</string>
+        <long>5657854971</long>
+      </entry>
+      <entry>
+        <string>run</string>
+        <long>3589628989</long>
+      </entry>
+      <entry>
+        <string>parse</string>
+        <long>28743838</long>
+      </entry>
+      <entry>
+        <string>saveProgram</string>
+        <long>48002389</long>
+      </entry>
+    </timings>
+    <sandbox>true</sandbox>
+    <iota>17</iota>
+    <head>1:17</head>
+    <done>true</done>
+    <resumeBlocked>false</resumeBlocked>
+  </execution>
+  <completed>true</completed>
+  <checkouts class="hudson.util.PersistedList"/>
+</flow-build>

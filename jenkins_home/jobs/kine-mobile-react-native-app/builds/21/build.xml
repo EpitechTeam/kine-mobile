@@ -1,0 +1,92 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@2.34">
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>kine_admin</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <org.jenkinsci.plugins.workflow.libs.LibrariesAction plugin="workflow-cps-global-lib@2.15">
+      <libraries/>
+    </org.jenkinsci.plugins.workflow.libs.LibrariesAction>
+    <org.jenkinsci.plugins.workflow.cps.EnvActionImpl plugin="workflow-cps@2.74">
+      <env class="tree-map"/>
+    </org.jenkinsci.plugins.workflow.cps.EnvActionImpl>
+  </actions>
+  <queueId>38</queueId>
+  <timestamp>1567703387704</timestamp>
+  <startTime>1567703387714</startTime>
+  <result>FAILURE</result>
+  <duration>3240</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>FAILURE</result>
+    <script>node {
+  try {
+    stage(&apos;Environment&apos;) {
+      sh &apos;git --version&apos;
+      echo &quot;Branch: ${env.BRANCH_NAME}&quot;
+      sh &apos;docker -v&apos;
+      sh &apos;printenv&apos;
+    }
+    stage(&apos;Build Docker test&apos;){
+     sh &apos;docker build -t react-test -f Dockerfile.test --no-cache .&apos;
+    }
+    stage(&apos;Docker test&apos;){
+      sh &apos;docker run --rm react-test&apos;
+    }
+    stage(&apos;Clean Docker test&apos;){
+      sh &apos;docker rmi react-test&apos;
+    }
+    stage(&apos;Deploy&apos;){
+      if(env.BRANCH_NAME == &apos;master&apos;){
+        sh &apos;docker build -t react-app --no-cache .&apos;
+        sh &apos;docker tag react-app localhost:5000/react-app&apos;
+        sh &apos;docker push localhost:5000/react-app&apos;
+        sh &apos;docker rmi -f react-app localhost:5000/react-app&apos;
+      }
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}</script>
+    <loadedScripts class="map"/>
+    <durabilityHint>MAX_SURVIVABILITY</durabilityHint>
+    <timings class="map">
+      <entry>
+        <string>flowNode</string>
+        <long>311095839</long>
+      </entry>
+      <entry>
+        <string>classLoad</string>
+        <long>1411066499</long>
+      </entry>
+      <entry>
+        <string>run</string>
+        <long>1479493038</long>
+      </entry>
+      <entry>
+        <string>parse</string>
+        <long>942329853</long>
+      </entry>
+      <entry>
+        <string>saveProgram</string>
+        <long>289418973</long>
+      </entry>
+    </timings>
+    <sandbox>true</sandbox>
+    <iota>14</iota>
+    <head>1:14</head>
+    <done>true</done>
+    <resumeBlocked>false</resumeBlocked>
+  </execution>
+  <completed>true</completed>
+  <checkouts class="hudson.util.PersistedList"/>
+</flow-build>
