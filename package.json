@@ -4,37 +4,41 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
+    "web": "expo start --web",
     "eject": "expo eject",
-    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
+    "test": "jest --watchAll"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@expo/samples": "2.1.1",
-    "expo": "^31.0.2",
-    "native-base": "^2.8.1",
+    "@expo/samples": "~3.0.3",
+    "@expo/vector-icons": "^10.0.3",
+    "@react-navigation/web": "^1.0.0-alpha.9",
+    "expo": "^35.0.0",
+    "expo-asset": "^7.0.0",
+    "expo-constants": "^7.0.0",
+    "expo-font": "^7.0.0",
+    "expo-web-browser": "^7.0.0",
     "prop-types": "latest",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
-    "react-native-bottom-toolbar": "^4.2.1",
-    "react-native-camera-roll-picker": "^1.2.3",
-    "react-native-elements": "^0.19.1",
-    "react-native-gifted-chat": "^0.5.0",
-    "react-native-material-buttons": "^0.5.0",
-    "react-native-material-design": "^0.3.7",
-    "react-native-nav": "^2.0.2",
-    "react-native-remote-svg": "^1.3.0",
-    "react-native-svg-uri": "^1.2.3",
+    "react": "16.8.3",
+    "react-dom": "16.8.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "react-native-camera-roll-picker": "^1.3.0",
+    "react-native-elements": "^1.2.6",
+    "react-native-gesture-handler": "~1.3.0",
+    "react-native-gifted-chat": "^0.11.0",
     "react-native-swipe-up-down": "^1.0.7",
-    "react-native-vector-icons": "latest",
-    "react-navigation": "^2.18.2",
-    "rn-sliding-up-panel": "^1.3.1"
+    "react-native-web": "^0.11.7",
+    "react-navigation": "^3.12.0",
+    "react-test-renderer": "latest"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0",
-    "jest-expo": "^31.0.0",
-    "react-native-material-textfield": "^0.12.0"
+    "babel-preset-expo": "^7.0.0",
+    "jest-expo": "^35.0.0",
+    "react-native-material-textfield": "^0.12.0",
+    "react-native-nav": "^2.0.2",
+    "react-native-vector-icons": "^6.6.0"
   },
   "private": true
 }

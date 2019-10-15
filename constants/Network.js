@@ -1,0 +1,1 @@
+const BaseUrl = "http://app.kineplus.tech:4000/"

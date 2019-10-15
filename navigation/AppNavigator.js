@@ -1,11 +1,12 @@
 import React from 'react';
-import {createStackNavigator, createSwitchNavigator} from 'react-navigation';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 import Login from './Login';
 
 import MainTabNavigator from './MainTabNavigator';
 import SceanceScreen from "../screens/SceanceScreen";
 import MessageScreen from "../screens/MessageScreen";
 import ExercicesScreen from "../screens/ExercicesScreen";
+import ForgotPassword from "../screens/ForgotPassword";
 
 const Stack = createStackNavigator({
     Main: {
@@ -18,7 +19,10 @@ const Stack = createStackNavigator({
     Message: MessageScreen,
 }, {headerMode: 'screen',});
 
-export default createSwitchNavigator({
+const  App = createStackNavigator({
     Login: Login,
+    MDP: ForgotPassword,
     Dash: Stack,
-}, {});
+})
+
+export default createAppContainer(App);

@@ -3,10 +3,11 @@
     "name": "Kine",
     "slug": "Kine",
     "privacy": "public",
-    "sdkVersion": "31.0.0",
+    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",
+      "web"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -28,5 +29,6 @@
     },
     "android": {
       "package": "com.kinePlus.kineMobile"
-    }}
+    }
+  }
 }
